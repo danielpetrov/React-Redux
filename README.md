@@ -1,5 +1,5 @@
 # React-Redux
-Simple app with React and Redux
+Simple app with React, Redux and Webpack
 ##run locally:
 * npm install -g webpack
 * npm install -g nodemon
