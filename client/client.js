@@ -14,11 +14,15 @@ import {Provider} from 'react-redux';
                 completed: false,
                 text: 'Initial todo for demo purposes'
             }
-        ]
+        ],
+        user: {
+            username: 'Daniel',
+            id: 1
+        }
     };
 
     let store = configureStore(initialState);
-    
+
     render(
         <Provider store={store}>
             <App/>

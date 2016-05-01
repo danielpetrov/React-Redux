@@ -33,6 +33,10 @@ export default function reducer(state, action) {
                     }
                 )
             });
+        case 'CREATE_USER_ID':
+            return Object.assign({}, state, {
+                user: Object.assign({}, state.user, {id: action.id})
+            });
         default:
             return state;
     }
