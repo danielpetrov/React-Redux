@@ -1,15 +1,30 @@
 import React, {Component} from 'react';
-import TextInput from './TextInput';
+import TodoInput from './TodoInput';
+import TodoList from './TodoList';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import actions from '../redux/actions';
 
 class App extends Component {
     render() {
         return (
             <div>
-                <div>This is the App component!</div>
-                <TextInput />
+                <h1>TODO list</h1>
+                <TodoInput  addTodo={this.props.actions.addTodo}/>
+                <TodoList  todos={this.props.todos} actions={this.props.actions}/>
             </div>
         )
     }
 }
 
-export default App;
+function mapStateToProps(state) {
+    return state; //pass in the whole of it
+}
+
+function mapDispatchToProps(dispatch){
+    return {
+        actions: bindActionCreators(actions, dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
